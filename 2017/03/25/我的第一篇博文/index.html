@@ -99,7 +99,7 @@
 <meta property="og:image" content="https://ww3.sinaimg.cn/large/006tKfTcly1fe0msh0z2dj313j0ziag8.jpg">
 <meta property="og:image" content="https://ww3.sinaimg.cn/large/006tKfTcly1fe0mx38qvmj31jo0oyjxe.jpg">
 <meta property="og:image" content="https://ww4.sinaimg.cn/large/006tKfTcly1fe0ojnaeevj30ts05k0tm.jpg">
-<meta property="og:updated_time" content="2017-03-26T15:55:13.000Z">
+<meta property="og:updated_time" content="2017-03-26T16:16:40.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="关于使用 Hexo + GitHub Pages 搭建个人博客的流程">
 <meta name="twitter:description" content="越来越多的人开始借助于 GitHub 来免费搭建个人博客，一方面记录下自己学习生活的点滴，另一方面也给后来者分享经验总结。提升自己，方便他人。本文就写一下 Mac 平台搭建博客的总结和过程中遇到的一些坑。">
@@ -342,16 +342,13 @@
 <li>配置 hexo 主题目录下 <code>_config.yml</code> 文件</li>
 </ul>
 <h1 id="开始安装配置"><a href="#开始安装配置" class="headerlink" title="开始安装配置"></a>开始安装配置</h1><hr>
-<p>1.查看电脑是否安装 <code>node.js</code>  </p>
-<blockquote>
+<h2 id="查看电脑是否安装-node-js"><a href="#查看电脑是否安装-node-js" class="headerlink" title="查看电脑是否安装 node.js"></a>查看电脑是否安装 <code>node.js</code></h2><blockquote>
 <p>命令：<code>node --version</code> 显示版本号：例如 <code>v6.9.5</code> 即安装有,否则请移步&gt; <a href="https://nodejs.org/en/" target="_blank" rel="external">NOde.js</a>安装</p>
 </blockquote>
-<p>2.查看电脑是否安装 <code>git</code>  </p>
-<blockquote>
+<h2 id="查看电脑是否安装-git"><a href="#查看电脑是否安装-git" class="headerlink" title="查看电脑是否安装 git"></a>查看电脑是否安装 <code>git</code></h2><blockquote>
 <p>命令：<code>git --version</code> 显示版本号：例如 <code>git version 2.10.1 (Apple Git-78)√</code> 即安装有,否则请移步&gt;  <a href="https://git-scm.com/" target="_blank" rel="external">git</a> 安装</p>
 </blockquote>
-<p>3.安装 <code>hexo</code> </p>
-<blockquote>
+<h2 id="安装-hexo"><a href="#安装-hexo" class="headerlink" title="安装 hexo"></a>安装 <code>hexo</code></h2><blockquote>
 <p>参考 <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a> 官方文档<br> <code>$ npm install -g hexo-cli</code> 或者 <code>$ sudo npm install -g hexo-cli</code><br>⚠️出现如下图所示是网络问题 可以多次尝试或者其它时间再试即可  </p>
 <p><img src="https://ww4.sinaimg.cn/large/006tNbRwly1fduazhc30qj30vg0kmgqd.jpg" alt="">   </p>
 <p>安装成功后 建议指定位置自定义新建文件夹 比如 blog<br><code>$ cd blog</code><br><code>$ hexo init</code><br><code>$ hexo g</code><br><code>$ npm install</code><br>会在 blog 文件夹下生成目录文件   </p>
@@ -360,17 +357,14 @@
 </blockquote>
 <p><code>$ hexo s</code> 访问本地 <a href="http://localhost:4000/" target="_blank" rel="external">http://localhost:4000/</a> 可以看到博客已经搭建成功页面  <img src="https://ww4.sinaimg.cn/large/006tKfTcly1fe0esml4cjj31kw0vq7wh.jpg" alt=""></p>
 </blockquote>
-<p>4.这里注册 Github 账户，已有账户的跳过，新建仓库，如下图</p>
-<blockquote>
+<h2 id="注册-Github-账户，已有账户的跳过，新建仓库，如下图"><a href="#注册-Github-账户，已有账户的跳过，新建仓库，如下图" class="headerlink" title="注册 Github 账户，已有账户的跳过，新建仓库，如下图"></a>注册 <a href="https://github.com" target="_blank" rel="external">Github</a> 账户，已有账户的跳过，新建仓库，如下图</h2><blockquote>
 <p><img src="https://ww2.sinaimg.cn/large/006tKfTcly1fe0m5b4ppej31570xuqc1.jpg" alt="">  </p>
 </blockquote>
-<p>5.配置 GitHub 与你的电脑之间的 SSH 连接 </p>
-<blockquote>
-<p>5.1 添加 SSH Key 到 GitHub   检查本地是否有 SSH Keys ？<br><code>$ ls -al ~/.ssh</code><br>如果有文件<code>id_rsa.pub</code>或<code>id_dsa.pub</code><br>Find前往文件夹 <code>~/.ssh/id_rsa.pub</code> 打开id_rsa.pub文件，里面的信息即为 SSH key，复制信息。<br>进入 Github –&gt; Settings 按照下图所示操作即可完成 SSH Key 添加:</p>
-<p><img src="https://ww3.sinaimg.cn/large/006tKfTcly1fe0msh0z2dj313j0ziag8.jpg" alt=""><br>进去后点击右上角添加新的 SSH Key<br><img src="https://ww3.sinaimg.cn/large/006tKfTcly1fe0mx38qvmj31jo0oyjxe.jpg" alt=""><br>5.2 如果没有文件 <code>id_rsa.pub</code>或<code>id_dsa.pub</code> 需要生成 SSH Key<br>终端输入以下命令：<br> <code>$ ssh-keygen -t rsa -C &quot;your_email@example.com&quot;</code><br>这里 <code>&quot;your_email@example.com&quot;</code> 替换成你注册 GitHub 的邮箱即可，终端会有一个 SHA256 编码生成即代表成功。<br>按照 5.1 中 方法步骤前往文件夹 找到 SSH Key 添加到 GitHub 即可</p>
+<h2 id="配置-GitHub-与你的电脑之间的-SSH-连接"><a href="#配置-GitHub-与你的电脑之间的-SSH-连接" class="headerlink" title="配置 GitHub 与你的电脑之间的 SSH 连接"></a>配置 GitHub 与你的电脑之间的 SSH 连接</h2><blockquote>
+<p>添加 SSH Key 到 GitHub   检查本地是否有 SSH Keys ？<br><code>$ ls -al ~/.ssh</code><br>如果有文件<code>id_rsa.pub</code>或<code>id_dsa.pub</code><br>Find前往文件夹 <code>~/.ssh/id_rsa.pub</code> 打开id_rsa.pub文件，里面的信息即为 SSH key，复制信息。<br>进入 Github –&gt; Settings 按照下图所示操作即可完成 SSH Key 添加:</p>
+<p><img src="https://ww3.sinaimg.cn/large/006tKfTcly1fe0msh0z2dj313j0ziag8.jpg" alt=""><br>进去后点击右上角添加新的 SSH Key<br><img src="https://ww3.sinaimg.cn/large/006tKfTcly1fe0mx38qvmj31jo0oyjxe.jpg" alt=""><br>如果没有文件 <code>id_rsa.pub</code>或<code>id_dsa.pub</code> 需要生成 SSH Key<br>终端输入以下命令：<br> <code>$ ssh-keygen -t rsa -C &quot;your_email@example.com&quot;</code><br>这里 <code>&quot;your_email@example.com&quot;</code> 替换成你注册 GitHub 的邮箱即可，终端会有一个 SHA256 编码生成即代表成功。<br>按照上面方法步骤前往文件夹 找到 SSH Key 添加到 GitHub 即可</p>
 </blockquote>
-<p>6.修改 Hexo 目录(此处及刚才创建的 blog 文件夹)下 <code>_config.yml</code> 文件  </p>
-<blockquote>
+<h2 id="修改-Hexo-目录-此处及刚才创建的-blog-文件夹-下-config-yml-文件"><a href="#修改-Hexo-目录-此处及刚才创建的-blog-文件夹-下-config-yml-文件" class="headerlink" title="修改 Hexo 目录(此处及刚才创建的 blog 文件夹)下 _config.yml 文件"></a>修改 Hexo 目录(此处及刚才创建的 blog 文件夹)下 <code>_config.yml</code> 文件</h2><blockquote>
 <p>打开 <code>_config.yml</code> 文件 下拉到最后 修改成以下样式 <code>feng9152</code>  替换成自己的用户名</p>
 <p><img src="https://ww4.sinaimg.cn/large/006tKfTcly1fe0ojnaeevj30ts05k0tm.jpg" alt=""></p>
 </blockquote>
@@ -529,7 +523,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#概述"><span class="nav-number">1.</span> <span class="nav-text">概述</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#开始安装配置"><span class="nav-number">2.</span> <span class="nav-text">开始安装配置</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#绑定个人域名（可选）"><span class="nav-number">3.</span> <span class="nav-text">绑定个人域名（可选）</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#概述"><span class="nav-number">1.</span> <span class="nav-text">概述</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#开始安装配置"><span class="nav-number">2.</span> <span class="nav-text">开始安装配置</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#查看电脑是否安装-node-js"><span class="nav-number">2.1.</span> <span class="nav-text">查看电脑是否安装 node.js</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查看电脑是否安装-git"><span class="nav-number">2.2.</span> <span class="nav-text">查看电脑是否安装 git</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装-hexo"><span class="nav-number">2.3.</span> <span class="nav-text">安装 hexo</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#注册-Github-账户，已有账户的跳过，新建仓库，如下图"><span class="nav-number">2.4.</span> <span class="nav-text">注册 Github 账户，已有账户的跳过，新建仓库，如下图</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置-GitHub-与你的电脑之间的-SSH-连接"><span class="nav-number">2.5.</span> <span class="nav-text">配置 GitHub 与你的电脑之间的 SSH 连接</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#修改-Hexo-目录-此处及刚才创建的-blog-文件夹-下-config-yml-文件"><span class="nav-number">2.6.</span> <span class="nav-text">修改 Hexo 目录(此处及刚才创建的 blog 文件夹)下 _config.yml 文件</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#绑定个人域名（可选）"><span class="nav-number">3.</span> <span class="nav-text">绑定个人域名（可选）</span></a></li></ol></div>
             
 
           </div>
