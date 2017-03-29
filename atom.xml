@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-03-27T03:29:39.000Z</updated>
+  <updated>2017-03-28T15:08:44.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://yoursite.com/2017/03/25/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E6%96%87/"/>
     <id>http://yoursite.com/2017/03/25/我的第一篇博文/</id>
     <published>2017-03-25T06:28:18.000Z</published>
-    <updated>2017-03-27T03:29:39.000Z</updated>
+    <updated>2017-03-28T15:08:44.000Z</updated>
     
     <content type="html"><![CDATA[<p>越来越多的人开始借助于 GitHub 来免费搭建个人博客，一方面记录下自己学习生活的点滴，另一方面也给后来者分享经验总结。提升自己，方便他人。本文就写一下 Mac 平台搭建博客的总结和过程中遇到的一些坑。<br><a id="more"></a> </p>
 <h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><hr>
