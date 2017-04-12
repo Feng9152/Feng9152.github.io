@@ -113,7 +113,7 @@
 <meta property="og:image" content="https://ww3.sinaimg.cn/large/006tKfTcly1fe0msh0z2dj313j0ziag8.jpg">
 <meta property="og:image" content="https://ww3.sinaimg.cn/large/006tKfTcly1fe0mx38qvmj31jo0oyjxe.jpg">
 <meta property="og:image" content="https://ww4.sinaimg.cn/large/006tKfTcly1fe0ojnaeevj30ts05k0tm.jpg">
-<meta property="og:updated_time" content="2017-04-11T14:37:46.000Z">
+<meta property="og:updated_time" content="2017-04-12T14:37:16.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="关于使用 Hexo + GitHub Pages 搭建个人博客的流程">
 <meta name="twitter:description" content="越来越多的人开始借助于 GitHub 来免费搭建个人博客，一方面记录下自己学习生活的点滴，另一方面也给后来者分享经验总结。提升自己，方便他人。本文就写一下 Mac 平台搭建博客的总结和过程中遇到的一些坑。">
@@ -387,9 +387,16 @@
 <h2 id="发表文章操作步骤"><a href="#发表文章操作步骤" class="headerlink" title="发表文章操作步骤"></a>发表文章操作步骤</h2><ul>
 <li><strong>hexo new</strong> “你的文章标题”  # 新建文章</li>
 <li><strong>hexo g</strong>  # 生成文章</li>
-<li><strong>hexo d</strong>  # 部署文章到网站<br><strong>注意：以上需要在你所定义的博客文件夹目录下进行</strong><h1 id="绑定个人域名（可选）"><a href="#绑定个人域名（可选）" class="headerlink" title="绑定个人域名（可选）"></a>绑定个人域名（可选）</h1></li>
+<li><strong>hexo d</strong>  # 部署文章到网站<br><strong>注意：以上需要在你所定义的博客文件夹目录下进行</strong></li>
 </ul>
-
+<h2 id="如何设置「阅读全文」？"><a href="#如何设置「阅读全文」？" class="headerlink" title="如何设置「阅读全文」？"></a>如何设置「阅读全文」？</h2><p>在首页显示一篇文章的部分内容，并提供一个链接跳转到全文页面是一个常见的需求。 也就是说，在首页显示文章的摘录并显示 <strong>阅读全文</strong> 按钮，可以通过以下方法：</p>
+<ol>
+<li>在文章中使用 \&lt;!– more –> 手动进行截断，Hexo 提供的方式 推荐</li>
+<li>在文章的 front-matter 中添加 description，并提供文章摘录</li>
+<li>自动形成摘要，在 主题配置文件 中添加：<br><code>autoexcerpt:</code>  <code>enable: true</code>  <code>length: 150</code>  默认截取的长度为 150 字符，可以根据需要自行设定  </li>
+</ol>
+<p>建议使用 \&lt;!– more –>（即第一种方式），除了可以精确控制需要显示的摘录内容以外， 这种方式也可以让 Hexo 中的插件更好的识别。</p>
+<h1 id="绑定个人域名（可选）"><a href="#绑定个人域名（可选）" class="headerlink" title="绑定个人域名（可选）"></a>绑定个人域名（可选）</h1>
       
     </div>
 
@@ -595,7 +602,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#概述"><span class="nav-number">1.</span> <span class="nav-text">概述</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#开始安装配置"><span class="nav-number">2.</span> <span class="nav-text">开始安装配置</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#查看电脑是否安装-node-js"><span class="nav-number">2.1.</span> <span class="nav-text">查看电脑是否安装 node.js</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查看电脑是否安装-git"><span class="nav-number">2.2.</span> <span class="nav-text">查看电脑是否安装 git</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装-hexo"><span class="nav-number">2.3.</span> <span class="nav-text">安装 hexo</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#注册-Github-账户，已有账户的跳过，新建仓库，如下图"><span class="nav-number">2.4.</span> <span class="nav-text">注册 Github 账户，已有账户的跳过，新建仓库，如下图</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置-GitHub-与你的电脑之间的-SSH-连接"><span class="nav-number">2.5.</span> <span class="nav-text">配置 GitHub 与你的电脑之间的 SSH 连接</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#修改-Hexo-目录-此处及刚才创建的-blog-文件夹-下-config-yml-文件"><span class="nav-number">2.6.</span> <span class="nav-text">修改 Hexo 目录(此处及刚才创建的 blog 文件夹)下 _config.yml 文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#发表文章操作步骤"><span class="nav-number">2.7.</span> <span class="nav-text">发表文章操作步骤</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#绑定个人域名（可选）"><span class="nav-number">3.</span> <span class="nav-text">绑定个人域名（可选）</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#概述"><span class="nav-number">1.</span> <span class="nav-text">概述</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#开始安装配置"><span class="nav-number">2.</span> <span class="nav-text">开始安装配置</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#查看电脑是否安装-node-js"><span class="nav-number">2.1.</span> <span class="nav-text">查看电脑是否安装 node.js</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查看电脑是否安装-git"><span class="nav-number">2.2.</span> <span class="nav-text">查看电脑是否安装 git</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装-hexo"><span class="nav-number">2.3.</span> <span class="nav-text">安装 hexo</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#注册-Github-账户，已有账户的跳过，新建仓库，如下图"><span class="nav-number">2.4.</span> <span class="nav-text">注册 Github 账户，已有账户的跳过，新建仓库，如下图</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置-GitHub-与你的电脑之间的-SSH-连接"><span class="nav-number">2.5.</span> <span class="nav-text">配置 GitHub 与你的电脑之间的 SSH 连接</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#修改-Hexo-目录-此处及刚才创建的-blog-文件夹-下-config-yml-文件"><span class="nav-number">2.6.</span> <span class="nav-text">修改 Hexo 目录(此处及刚才创建的 blog 文件夹)下 _config.yml 文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#发表文章操作步骤"><span class="nav-number">2.7.</span> <span class="nav-text">发表文章操作步骤</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#如何设置「阅读全文」？"><span class="nav-number">2.8.</span> <span class="nav-text">如何设置「阅读全文」？</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#绑定个人域名（可选）"><span class="nav-number">3.</span> <span class="nav-text">绑定个人域名（可选）</span></a></li></ol></div>
             
 
           </div>

@@ -109,7 +109,7 @@ GCD（Grand Central Dispatch）介绍GCD属于系统级的线程管理，在Disp
 <meta property="og:site_name" content="Feng9152">
 <meta property="og:description" content="iOS 开发中少不了多线程的使用，目前共有四种多线程方法，分别是PThread、NSThread、GCD、NSOperation。其中因为 GCD 使用起来方便高效而为广大开发人员采用！这篇文章就介绍一些开发中常见的 GCD 的用法及其注意事项。\&amp;lt;!– more –&amp;gt;
 GCD（Grand Central Dispatch）介绍GCD属于系统级的线程管理，在Dispatch queue中执行">
-<meta property="og:updated_time" content="2017-04-12T14:28:44.000Z">
+<meta property="og:updated_time" content="2017-04-12T14:48:51.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="iOS 开发中 GCD 的使用">
 <meta name="twitter:description" content="iOS 开发中少不了多线程的使用，目前共有四种多线程方法，分别是PThread、NSThread、GCD、NSOperation。其中因为 GCD 使用起来方便高效而为广大开发人员采用！这篇文章就介绍一些开发中常见的 GCD 的用法及其注意事项。\&amp;lt;!– more –&amp;gt;
@@ -340,17 +340,18 @@ GCD（Grand Central Dispatch）介绍GCD属于系统级的线程管理，在Disp
       
         <p>iOS 开发中少不了多线程的使用，目前共有四种多线程方法，分别是PThread、NSThread、GCD、NSOperation。其中因为 GCD 使用起来方便高效而为广大开发人员采用！这篇文章就介绍一些开发中常见的 GCD 的用法及其注意事项。<br>\&lt;!– more –></p>
 <h1 id="GCD（Grand-Central-Dispatch）介绍"><a href="#GCD（Grand-Central-Dispatch）介绍" class="headerlink" title="GCD（Grand Central Dispatch）介绍"></a>GCD（Grand Central Dispatch）介绍</h1><p>GCD属于系统级的线程管理，在Dispatch queue中执行需要执行的任务性能非常的高。GCD这块已经开源，地址<a href="">http://libdispatch.macosforge.org</a>。GCD中的FIFO队列称为dispatch queue，用来保证先进来的任务先得到执行。</p>
-<h2 id="1-什么是GCD？"><a href="#1-什么是GCD？" class="headerlink" title="1.什么是GCD？"></a>1.什么是GCD？</h2><p>全称是Grand Central Dispatch，可译为“牛逼的中枢调度器”<br>纯C语言，提供了非常多强大的函数 </p>
-<h2 id="2-GCD的优势"><a href="#2-GCD的优势" class="headerlink" title="2.GCD的优势"></a>2.GCD的优势</h2><p>GCD是苹果公司为多核的并行运算提出的解决方案<br>GCD会自动利用更多的CPU内核（比如双核、四核）<br>GCD会自动管理线程的生命周期（创建线程、调度任务、销毁线程）<br>程序员只需要告诉GCD想要执行什么任务，不需要编写任何线程管理代码 </p>
-<h2 id="3-GCD概要"><a href="#3-GCD概要" class="headerlink" title="3.GCD概要"></a>3.GCD概要</h2><ul>
-<li>和operation queue一样都是基于队列的并发编程API，他们通过集中管理大家协同使用的线程池。<ul>
+<h2 id="1-什么是GCD？"><a href="#1-什么是GCD？" class="headerlink" title="1. 什么是GCD？"></a>1. 什么是GCD？</h2><p>全称是Grand Central Dispatch，可译为“牛逼的中枢调度器”<br>纯C语言，提供了非常多强大的函数 </p>
+<h2 id="2-GCD的优势"><a href="#2-GCD的优势" class="headerlink" title="2. GCD的优势"></a>2. GCD的优势</h2><p>GCD是苹果公司为多核的并行运算提出的解决方案<br>GCD会自动利用更多的CPU内核（比如双核、四核）<br>GCD会自动管理线程的生命周期（创建线程、调度任务、销毁线程）<br>程序员只需要告诉GCD想要执行什么任务，不需要编写任何线程管理代码 </p>
+<h2 id="3-GCD概要"><a href="#3-GCD概要" class="headerlink" title="3. GCD概要"></a>3. GCD概要</h2><ul>
+<li>和operation queue一样都是基于队列的并发编程API，通过集中管理大家协同使用的线程池。</li>
 <li>公开的5个不同队列：运行在主线程中的main queue，3个不同优先级的后台队列（High Priority Queue，Default Priority Queue，Low Priority Queue），以及一个优先级更低的后台队列Background Priority Queue（用于I/O）</li>
 <li>可创建自定义队列：串行或并列队列。自定义一般放在Default Priority Queue和Main Queue里。</li>
-<li>操作是在多线程上还是单线程主要是看队列的类型和执行方法，并行队列异步执行才能在多线程，并行队列同步执行就只会在这个并行队列在队列中被分配的那个线程执行。</li>
+<li>操作是在多线程上还是单线程主要是看队列的类型和执行方法，并行队列异步执行才能在多线程，并行队列同步执行就只会在这个并行队列在队列中被分配的那个线程执行。<h1 id="GCD-中的基本概念"><a href="#GCD-中的基本概念" class="headerlink" title="GCD 中的基本概念"></a>GCD 中的基本概念</h1></li>
+<li>队列  dispatch queue </li>
+<li>任务</li>
+<li>队列组</li>
 </ul>
-</li>
-</ul>
-
+<h1 id="GCD-在-iOS-开发中常见用法"><a href="#GCD-在-iOS-开发中常见用法" class="headerlink" title="GCD 在 iOS 开发中常见用法"></a>GCD 在 iOS 开发中常见用法</h1><h2 id="1-延迟执行"><a href="#1-延迟执行" class="headerlink" title="1.  延迟执行"></a>1.  延迟执行</h2><h2 id="2-实现一次性代码"><a href="#2-实现一次性代码" class="headerlink" title="2.  实现一次性代码"></a>2.  实现一次性代码</h2><h2 id="3-使用队列组解决-需求：从网络上下载两张图片，把两张图片合并成一张最终显示在view上"><a href="#3-使用队列组解决-需求：从网络上下载两张图片，把两张图片合并成一张最终显示在view上" class="headerlink" title="3.  使用队列组解决      需求：从网络上下载两张图片，把两张图片合并成一张最终显示在view上"></a>3.  使用队列组解决      需求：从网络上下载两张图片，把两张图片合并成一张最终显示在view上</h2><h1 id="GCD-死锁问题"><a href="#GCD-死锁问题" class="headerlink" title="GCD 死锁问题"></a>GCD 死锁问题</h1>
       
     </div>
 
@@ -556,7 +557,7 @@ GCD（Grand Central Dispatch）介绍GCD属于系统级的线程管理，在Disp
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#GCD（Grand-Central-Dispatch）介绍"><span class="nav-number">1.</span> <span class="nav-text">GCD（Grand Central Dispatch）介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-什么是GCD？"><span class="nav-number">1.1.</span> <span class="nav-text">1.什么是GCD？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-GCD的优势"><span class="nav-number">1.2.</span> <span class="nav-text">2.GCD的优势</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-GCD概要"><span class="nav-number">1.3.</span> <span class="nav-text">3.GCD概要</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#GCD（Grand-Central-Dispatch）介绍"><span class="nav-number">1.</span> <span class="nav-text">GCD（Grand Central Dispatch）介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-什么是GCD？"><span class="nav-number">1.1.</span> <span class="nav-text">1. 什么是GCD？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-GCD的优势"><span class="nav-number">1.2.</span> <span class="nav-text">2. GCD的优势</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-GCD概要"><span class="nav-number">1.3.</span> <span class="nav-text">3. GCD概要</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#GCD-中的基本概念"><span class="nav-number">2.</span> <span class="nav-text">GCD 中的基本概念</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#GCD-在-iOS-开发中常见用法"><span class="nav-number">3.</span> <span class="nav-text">GCD 在 iOS 开发中常见用法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-延迟执行"><span class="nav-number">3.1.</span> <span class="nav-text">1.  延迟执行</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-实现一次性代码"><span class="nav-number">3.2.</span> <span class="nav-text">2.  实现一次性代码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-使用队列组解决-需求：从网络上下载两张图片，把两张图片合并成一张最终显示在view上"><span class="nav-number">3.3.</span> <span class="nav-text">3.  使用队列组解决      需求：从网络上下载两张图片，把两张图片合并成一张最终显示在view上</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#GCD-死锁问题"><span class="nav-number">4.</span> <span class="nav-text">GCD 死锁问题</span></a></li></ol></div>
             
 
           </div>
