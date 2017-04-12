@@ -341,8 +341,8 @@
       
         
           
-            <p>iOS 开发中少不了多线程的使用，目前共有四种多线程方法，分别是PThread、NSThread、GCD、NSOperation。其中因为 GCD 使用起来方便高效而为广大开发人员采用！这篇文章就介绍一些开发中常见的 GCD 的用法及其注意事项。</p>
-<p>\&lt;!–more–></p>
+            <p>iOS 开发中少不了多线程的使用，目前共有四种多线程方法，分别是PThread、NSThread、GCD、NSOperation。其中因为 GCD 使用起来方便高效而为广大开发人员采用！这篇文章就介绍一些开发中常见的 GCD 的用法及其注意事项。<br>\&lt;!–more–></p>
+<h1 id="GCD（Grand-Central-Dispatch）介绍"><a href="#GCD（Grand-Central-Dispatch）介绍" class="headerlink" title="GCD（Grand Central Dispatch）介绍"></a>GCD（Grand Central Dispatch）介绍</h1><p>GCD属于系统级的线程管理，在Dispatch queue中执行需要执行的任务性能非常的高。GCD这块已经开源，地址<a href="">http://libdispatch.macosforge.org</a>。GCD中的FIFO队列称为dispatch queue，用来保证先进来的任务先得到执行。<br>1.什么是GCD？<br>全称是Grand Central Dispatch，可译为“牛逼的中枢调度器”<br>纯C语言，提供了非常多强大的函数<br>2.GCD的优势<br>GCD是苹果公司为多核的并行运算提出的解决方案<br>GCD会自动利用更多的CPU内核（比如双核、四核）<br>GCD会自动管理线程的生命周期（创建线程、调度任务、销毁线程）<br>程序员只需要告诉GCD想要执行什么任务，不需要编写任何线程管理代码<br>3.GCD概要<br>•    和operation queue一样都是基于队列的并发编程API，他们通过集中管理大家协同使用的线程池。<br>•    公开的5个不同队列：运行在主线程中的main queue，3个不同优先级的后台队列（High Priority Queue，Default Priority Queue，Low Priority Queue），以及一个优先级更低的后台队列Background Priority Queue（用于I/O）<br>•    可创建自定义队列：串行或并列队列。自定义一般放在Default Priority Queue和Main Queue里。<br>•    操作是在多线程上还是单线程主要是看队列的类型和执行方法，并行队列异步执行才能在多线程，并行队列同步执行就只会在这个并行队列在队列中被分配的那个线程执行。（TorchLennon 指出先前文中此句一处错误</p>
 
           
         
