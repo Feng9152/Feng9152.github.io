@@ -340,22 +340,14 @@
 
       
         
-          
-            <p>iOS 开发中少不了多线程的使用，目前共有四种多线程方法，分别是PThread、NSThread、GCD、NSOperation。其中因为 GCD 使用起来方便高效而为广大开发人员采用！这篇文章就介绍一些开发中常见的 GCD 的用法及其注意事项。<br>\&lt;!– more –></p>
-<h1 id="GCD（Grand-Central-Dispatch）介绍"><a href="#GCD（Grand-Central-Dispatch）介绍" class="headerlink" title="GCD（Grand Central Dispatch）介绍"></a>GCD（Grand Central Dispatch）介绍</h1><p>GCD属于系统级的线程管理，在Dispatch queue中执行需要执行的任务性能非常的高。GCD这块已经开源，地址<a href="">http://libdispatch.macosforge.org</a>。GCD中的FIFO队列称为dispatch queue，用来保证先进来的任务先得到执行。</p>
-<h2 id="1-什么是GCD？"><a href="#1-什么是GCD？" class="headerlink" title="1. 什么是GCD？"></a>1. 什么是GCD？</h2><p>全称是Grand Central Dispatch，可译为“牛逼的中枢调度器”<br>纯C语言，提供了非常多强大的函数 </p>
-<h2 id="2-GCD的优势"><a href="#2-GCD的优势" class="headerlink" title="2. GCD的优势"></a>2. GCD的优势</h2><p>GCD是苹果公司为多核的并行运算提出的解决方案<br>GCD会自动利用更多的CPU内核（比如双核、四核）<br>GCD会自动管理线程的生命周期（创建线程、调度任务、销毁线程）<br>程序员只需要告诉GCD想要执行什么任务，不需要编写任何线程管理代码 </p>
-<h2 id="3-GCD概要"><a href="#3-GCD概要" class="headerlink" title="3. GCD概要"></a>3. GCD概要</h2><ul>
-<li>和operation queue一样都是基于队列的并发编程API，通过集中管理大家协同使用的线程池。</li>
-<li>公开的5个不同队列：运行在主线程中的main queue，3个不同优先级的后台队列（High Priority Queue，Default Priority Queue，Low Priority Queue），以及一个优先级更低的后台队列Background Priority Queue（用于I/O）</li>
-<li>可创建自定义队列：串行或并列队列。自定义一般放在Default Priority Queue和Main Queue里。</li>
-<li>操作是在多线程上还是单线程主要是看队列的类型和执行方法，并行队列异步执行才能在多线程，并行队列同步执行就只会在这个并行队列在队列中被分配的那个线程执行。<h1 id="GCD-中的基本概念"><a href="#GCD-中的基本概念" class="headerlink" title="GCD 中的基本概念"></a>GCD 中的基本概念</h1></li>
-<li>队列  dispatch queue </li>
-<li>任务</li>
-<li>队列组</li>
-</ul>
-<h1 id="GCD-在-iOS-开发中常见用法"><a href="#GCD-在-iOS-开发中常见用法" class="headerlink" title="GCD 在 iOS 开发中常见用法"></a>GCD 在 iOS 开发中常见用法</h1><h2 id="1-延迟执行"><a href="#1-延迟执行" class="headerlink" title="1.  延迟执行"></a>1.  延迟执行</h2><h2 id="2-实现一次性代码"><a href="#2-实现一次性代码" class="headerlink" title="2.  实现一次性代码"></a>2.  实现一次性代码</h2><h2 id="3-使用队列组解决-需求：从网络上下载两张图片，把两张图片合并成一张最终显示在view上"><a href="#3-使用队列组解决-需求：从网络上下载两张图片，把两张图片合并成一张最终显示在view上" class="headerlink" title="3.  使用队列组解决      需求：从网络上下载两张图片，把两张图片合并成一张最终显示在view上"></a>3.  使用队列组解决      需求：从网络上下载两张图片，把两张图片合并成一张最终显示在view上</h2><h1 id="GCD-死锁问题"><a href="#GCD-死锁问题" class="headerlink" title="GCD 死锁问题"></a>GCD 死锁问题</h1>
-          
+          <p>iOS 开发中少不了多线程的使用，目前共有四种多线程方法，分别是PThread、NSThread、GCD、NSOperation。其中因为 GCD 使用起来方便高效而为广大开发人员采用！这篇文章就介绍一些开发中常见的 GCD 的用法及其注意事项。<br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/04/11/iOS-开发中-GCD-的使用/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -397,7 +389,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/03/25/我的第一篇博文/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/03/25/hexo 搭建博客/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Feng9152">
@@ -419,7 +411,7 @@
             
               
                 
-                <a class="post-title-link" href="/2017/03/25/我的第一篇博文/" itemprop="url">
+                <a class="post-title-link" href="/2017/03/25/hexo 搭建博客/" itemprop="url">
                   关于使用 Hexo + GitHub Pages 搭建个人博客的流程
                 </a>
               
@@ -476,7 +468,7 @@
           <p>越来越多的人开始借助于 GitHub 来免费搭建个人博客，一方面记录下自己学习生活的点滴，另一方面也给后来者分享经验总结。提升自己，方便他人。本文就写一下 Mac 平台搭建博客的总结和过程中遇到的一些坑。<br>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2017/03/25/我的第一篇博文/#more" rel="contents">
+            <a class="btn" href="/2017/03/25/hexo 搭建博客/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
