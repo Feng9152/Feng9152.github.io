@@ -101,15 +101,19 @@
 
 
 
-<meta name="description" content="Done is better then perfect!">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Feng9152">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta name="description" content="概述首先来看什么是库，库(Library)说白了就是一段编译好的二进制代码，加上头文件就可以供别人使用。\&amp;lt;!– more –&amp;gt;什么时候我们会用到库呢？一种情况是某些代码需要给别人使用，但是我们不希望别人看到源码，就需要以库的形式进行封装，只暴露出头文件。另外一种情况是，对于某些不会进行大的改动的代码，我们想减少编译的时间，就可以把它打包成库，因为库是已经编译好的二进制了，编译的时候只需要">
+<meta property="og:type" content="article">
+<meta property="og:title" content="静态库与动态库">
+<meta property="og:url" content="http://yoursite.com/2017/04/20/静态库与动态库/index.html">
 <meta property="og:site_name" content="Feng9152">
-<meta property="og:description" content="Done is better then perfect!">
+<meta property="og:description" content="概述首先来看什么是库，库(Library)说白了就是一段编译好的二进制代码，加上头文件就可以供别人使用。\&amp;lt;!– more –&amp;gt;什么时候我们会用到库呢？一种情况是某些代码需要给别人使用，但是我们不希望别人看到源码，就需要以库的形式进行封装，只暴露出头文件。另外一种情况是，对于某些不会进行大的改动的代码，我们想减少编译的时间，就可以把它打包成库，因为库是已经编译好的二进制了，编译的时候只需要">
+<meta property="og:image" content="http://ww2.sinaimg.cn/large/006tNbRwly1fetb8yg2pej31kw0xown5.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/006tNbRwly1fetb8od6sfj31kw0y1wos.jpg">
+<meta property="og:updated_time" content="2017-04-20T14:50:41.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Feng9152">
-<meta name="twitter:description" content="Done is better then perfect!">
+<meta name="twitter:title" content="静态库与动态库">
+<meta name="twitter:description" content="概述首先来看什么是库，库(Library)说白了就是一段编译好的二进制代码，加上头文件就可以供别人使用。\&amp;lt;!– more –&amp;gt;什么时候我们会用到库呢？一种情况是某些代码需要给别人使用，但是我们不希望别人看到源码，就需要以库的形式进行封装，只暴露出头文件。另外一种情况是，对于某些不会进行大的改动的代码，我们想减少编译的时间，就可以把它打包成库，因为库是已经编译好的二进制了，编译的时候只需要">
+<meta name="twitter:image" content="http://ww2.sinaimg.cn/large/006tNbRwly1fetb8yg2pej31kw0xown5.jpg">
 
 
 
@@ -137,13 +141,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/04/20/静态库与动态库/"/>
 
 
 
 
 
-  <title> Feng9152 </title>
+  <title> 静态库与动态库 | Feng9152 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -168,9 +172,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-   page-home 
- ">
+  <div class="container sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -253,9 +255,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -285,10 +287,7 @@
             
             
               
-                
-                <a class="post-title-link" href="/2017/04/20/静态库与动态库/" itemprop="url">
-                  静态库与动态库
-                </a>
+                静态库与动态库
               
             
           </h1>
@@ -339,9 +338,7 @@
       
 
       
-        
-          
-            <h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>首先来看什么是库，库(Library)说白了就是一段编译好的二进制代码，加上头文件就可以供别人使用。<br>\&lt;!– more –><br>什么时候我们会用到库呢？一种情况是某些代码需要给别人使用，但是我们不希望别人看到源码，就需要以库的形式进行封装，只暴露出头文件。另外一种情况是，对于某些不会进行大的改动的代码，我们想减少编译的时间，就可以把它打包成库，因为库是已经编译好的二进制了，编译的时候只需要 Link 一下，不会浪费编译时间。<br>(代码执行步骤：源码–>编译–>链接–>运行)</p>
+        <h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>首先来看什么是库，库(Library)说白了就是一段编译好的二进制代码，加上头文件就可以供别人使用。<br>\&lt;!– more –><br>什么时候我们会用到库呢？一种情况是某些代码需要给别人使用，但是我们不希望别人看到源码，就需要以库的形式进行封装，只暴露出头文件。另外一种情况是，对于某些不会进行大的改动的代码，我们想减少编译的时间，就可以把它打包成库，因为库是已经编译好的二进制了，编译的时候只需要 Link 一下，不会浪费编译时间。<br>(代码执行步骤：源码–>编译–>链接–>运行)</p>
 <p>上面提到库在使用的时候需要 Link，Link 的方式有两种，静态和动态，于是便产生了静态库和动态库。</p>
 <h1 id="静态库"><a href="#静态库" class="headerlink" title="静态库"></a>静态库</h1><p>静态库即静态链接库（Windows 下的 .lib，Linux 和 Mac 下的 .a）。之所以叫做静态，是因为静态库在编译的时候会被直接拷贝一份，复制到目标程序里，这段代码在目标程序里就不会再改变了。</p>
 <p>静态库的好处很明显，编译完成之后，库文件实际上就没有作用了。目标程序没有外部依赖，直接就可以运行。当然其缺点也很明显，就是会使用目标程序的体积增大。</p>
@@ -361,20 +358,27 @@
 </li>
 </ul>
 
-          
+      
+    </div>
+
+    <div>
+      
         
+
       
     </div>
 
     <div>
       
-    </div>
+        
 
-    <div>
       
     </div>
 
     <div>
+      
+        
+
       
     </div>
 
@@ -382,271 +386,38 @@
       
 
       
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/11/iOS-开发中-GCD-的使用/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Feng9152">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="https://ww3.sinaimg.cn/large/006tNbRwly1fe41rhoqr8j30dw0ccgn0.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Feng9152">
-    </span>
-
-    
-      <header class="post-header">
-
         
-        
-          <h1 class="post-title" itemprop="name headline">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
             
+              <a href="/2017/04/11/iOS-开发中-GCD-的使用/" rel="next" title="iOS 开发中 GCD 的使用">
+                <i class="fa fa-chevron-left"></i> iOS 开发中 GCD 的使用
+              </a>
             
-              
-                
-                <a class="post-title-link" href="/2017/04/11/iOS-开发中-GCD-的使用/" itemprop="url">
-                  iOS 开发中 GCD 的使用
-                </a>
-              
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
             
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-11T22:22:56+08:00">
-                2017-04-11
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
+          </div>
         </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          <p>iOS 开发中少不了多线程的使用，目前共有四种多线程方法，分别是PThread、NSThread、GCD、NSOperation。其中因为 GCD 使用起来方便高效而为广大开发人员采用！这篇文章就介绍一些开发中常见的 GCD 的用法及其注意事项。<br>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/04/11/iOS-开发中-GCD-的使用/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </article>
 
 
-    
-      
 
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/03/25/hexo 搭建博客/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Feng9152">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="https://ww3.sinaimg.cn/large/006tNbRwly1fe41rhoqr8j30dw0ccgn0.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Feng9152">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/03/25/hexo 搭建博客/" itemprop="url">
-                  关于使用 Hexo + GitHub Pages 搭建个人博客的流程
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-25T14:28:18+08:00">
-                2017-03-25
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>越来越多的人开始借助于 GitHub 来免费搭建个人博客，一方面记录下自己学习生活的点滴，另一方面也给后来者分享经验总结。提升自己，方便他人。本文就写一下 Mac 平台搭建博客的总结和过程中遇到的一些坑。<br>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/03/25/hexo 搭建博客/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
+    <div class="post-spread">
       
     </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-  </section>
-
-  
+  </div>
 
 
           </div>
@@ -654,6 +425,10 @@
 
 
           
+  <div class="comments" id="comments">
+    
+  </div>
+
 
         </div>
         
@@ -673,8 +448,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="https://ww3.sinaimg.cn/large/006tNbRwly1fe41rhoqr8j30dw0ccgn0.jpg"
@@ -763,6 +547,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#概述"><span class="nav-number">1.</span> <span class="nav-text">概述</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#静态库"><span class="nav-number">2.</span> <span class="nav-text">静态库</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#动态库"><span class="nav-number">3.</span> <span class="nav-text">动态库</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#iOS-中的-Framework"><span class="nav-number">4.</span> <span class="nav-text">iOS 中的 Framework</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#iOS-项目中添加-Framework"><span class="nav-number">5.</span> <span class="nav-text">iOS 项目中添加 Framework</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -877,6 +677,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
 
   
 
