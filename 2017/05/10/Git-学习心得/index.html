@@ -107,7 +107,7 @@
 <meta property="og:url" content="http://yoursite.com/2017/05/10/Git-学习心得/index.html">
 <meta property="og:site_name" content="Feng9152">
 <meta property="og:description" content="Git 是开发中使用最广泛的分布式版本控制系统（没有之一）。不同于 SVN  等集中式版本控制系统，Git 使用时候不需要时刻联网，因为每个人电脑里都有完整的版本库，所以其安全性也要高很多。Git 还有强大便捷的远程仓库、分支管理等功能！赢得了全球开发者的青睐！">
-<meta property="og:updated_time" content="2017-05-11T14:57:42.000Z">
+<meta property="og:updated_time" content="2017-05-11T15:01:38.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Git 学习心得">
 <meta name="twitter:description" content="Git 是开发中使用最广泛的分布式版本控制系统（没有之一）。不同于 SVN  等集中式版本控制系统，Git 使用时候不需要时刻联网，因为每个人电脑里都有完整的版本库，所以其安全性也要高很多。Git 还有强大便捷的远程仓库、分支管理等功能！赢得了全球开发者的青睐！">
@@ -374,43 +374,21 @@
 <li>git add   添加文件到 git 仓库</li>
 <li>git commit -m “xxxx”</li>
 <li>git status  查看工作去区状态</li>
-<li>git diff  查看文件修改内容 </li>
-</ul>
-<h1 id="项目版本管理"><a href="#项目版本管理" class="headerlink" title="项目版本管理"></a>项目版本管理</h1><ul>
+<li>git diff  查看文件修改内容 <h1 id="项目版本管理"><a href="#项目版本管理" class="headerlink" title="项目版本管理"></a>项目版本管理</h1></li>
 <li>git log  查看提交历史确定回退版本</li>
 <li>git log –pretty=oneline </li>
 <li>git reflog  查看命令历史确定前进到哪个版本</li>
 <li>git reset –hard commit_id </li>
-</ul>
-<p>暂时储藏工作现场</p>
-<ul>
-<li>git stash</li>
-</ul>
-<p>重回工作现场</p>
-<ul>
-<li>git stash pop</li>
-</ul>
-<p>丢弃没有合并过的分支</p>
-<ul>
-<li>git branch -D <name></name></li>
-</ul>
-<p>丢弃工作区修改</p>
-<ul>
+<li>暂时储藏工作现场</li>
+<li>git stash<br>重回工作现场</li>
+<li>git stash pop<br>丢弃没有合并过的分支</li>
+<li>git branch -D <name><br>丢弃工作区修改</name></li>
 <li>git checkout – file</li>
-<li>git reset HEAD file</li>
-</ul>
-<p>删除一个文件</p>
-<ul>
+<li>git reset HEAD file<br>删除一个文件</li>
 <li>git rm<h1 id="远程仓库"><a href="#远程仓库" class="headerlink" title="远程仓库"></a>远程仓库</h1>关联远程库</li>
-<li>git remote add origin git@server-name:path/repo-name.git</li>
-</ul>
-<p>推送分支内容</p>
-<ul>
+<li>git remote add origin git@server-name:path/repo-name.git<br>推送分支内容</li>
 <li>git push -u origin master</li>
-<li>git push origin master</li>
-</ul>
-<p>克隆远程库</p>
-<ul>
+<li>git push origin master<br>克隆远程库</li>
 <li>git clone<h1 id="分支管理"><a href="#分支管理" class="headerlink" title="分支管理"></a>分支管理</h1></li>
 <li>git branch              查看当前分支</li>
 <li>git branch <name>       创建分支</name></li>
@@ -424,10 +402,8 @@
 <li>git tag  查看所有标签</li>
 <li>git push origin <tagname></tagname></li>
 <li>git push origin –tags</li>
-<li>git push origin :refs/tags/<tagname></tagname></li>
+<li>git push origin :refs/tags/<tagname><h1 id="参考信息"><a href="#参考信息" class="headerlink" title="参考信息"></a>参考信息</h1>Git 官方网站：<a href="http://git-scm.com" target="_blank" rel="external">http://git-scm.com</a><br>廖雪峰：<a href="http://www.liaoxuefeng.com/" target="_blank" rel="external">http://www.liaoxuefeng.com/</a></tagname></li>
 </ul>
-<h1 id="参考信息"><a href="#参考信息" class="headerlink" title="参考信息"></a>参考信息</h1><p>Git 官方网站：<a href="http://git-scm.com" target="_blank" rel="external">http://git-scm.com</a></p>
-<p>廖雪峰：<a href="http://www.liaoxuefeng.com/" target="_blank" rel="external">http://www.liaoxuefeng.com/</a></p>
 
       
     </div>
