@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-05-11T15:01:38.000Z</updated>
+  <updated>2017-05-14T09:06:49.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://yoursite.com/2017/05/10/Git-%E5%AD%A6%E4%B9%A0%E5%BF%83%E5%BE%97/"/>
     <id>http://yoursite.com/2017/05/10/Git-学习心得/</id>
     <published>2017-05-10T15:54:44.000Z</published>
-    <updated>2017-05-11T15:01:38.000Z</updated>
+    <updated>2017-05-14T09:06:49.000Z</updated>
     
     <content type="html"><![CDATA[<p>Git 是开发中使用最广泛的分布式版本控制系统（没有之一）。<br>不同于 SVN  等集中式版本控制系统，Git 使用时候不需要时刻联网，因为每个人电脑里都有完整的版本库，所以其安全性也要高很多。Git 还有强大便捷的远程仓库、分支管理等功能！赢得了全球开发者的青睐！</p>
 <a id="more"></a>
@@ -33,8 +33,7 @@
 <li>git log  查看提交历史确定回退版本</li>
 <li>git log –pretty=oneline </li>
 <li>git reflog  查看命令历史确定前进到哪个版本</li>
-<li>git reset –hard commit_id </li>
-<li>暂时储藏工作现场</li>
+<li>git reset –hard commit_id<br>-<br>暂时储藏工作现场</li>
 <li>git stash<br>重回工作现场</li>
 <li>git stash pop<br>丢弃没有合并过的分支</li>
 <li>git branch -D <name><br>丢弃工作区修改</name></li>
@@ -57,8 +56,36 @@
 <li>git tag  查看所有标签</li>
 <li>git push origin <tagname></tagname></li>
 <li>git push origin –tags</li>
-<li>git push origin :refs/tags/<tagname><h1 id="参考信息"><a href="#参考信息" class="headerlink" title="参考信息"></a>参考信息</h1>Git 官方网站：<a href="http://git-scm.com" target="_blank" rel="external">http://git-scm.com</a><br>廖雪峰：<a href="http://www.liaoxuefeng.com/" target="_blank" rel="external">http://www.liaoxuefeng.com/</a></tagname></li>
+<li>git push origin :refs/tags/<tagname><h1 id="参考信息"><a href="#参考信息" class="headerlink" title="参考信息"></a>参考信息</h1>Git 官方网站：<a href="http://git-scm.com" target="_blank" rel="external">http://git-scm.com</a><br>廖雪峰：<a href="http://www.liaoxuefeng.com/" target="_blank" rel="external">http://www.liaoxuefeng.com/</a><h1 id="Git-使用场景"><a href="#Git-使用场景" class="headerlink" title="Git 使用场景"></a>Git 使用场景</h1><h2 id="本地仓库推送到远程库"><a href="#本地仓库推送到远程库" class="headerlink" title="本地仓库推送到远程库"></a>本地仓库推送到远程库</h2><ol>
+<li>终端 cd 到项目文件夹 初始化当前文件夹变为 git 可以管理的文件夹<blockquote>
+<p>git init </p>
+</blockquote>
+</li>
+</ol>
+</tagname></li>
 </ul>
+<ol>
+<li>关联远程仓库（已经在 GitHub 建好远程库）<blockquote>
+<p>git remote add origin  远程库地址</p>
+</blockquote>
+</li>
+<li>把文件添加到版本库中，使用 git add  . 命令把文件添加到暂存区里面，后面空格后小数点 . 意味添加文件夹所有文件<blockquote>
+<p>git add  .</p>
+</blockquote>
+</li>
+<li>提交文件到仓库 使用 git commit 命令<blockquote>
+<p>git commit -m ‘这里提交说明’</p>
+</blockquote>
+</li>
+<li>获取远程库与本地同步合并（如果远程库不为空必须有这一步，否则后面提交会失败）<blockquote>
+<p>git pull —rebase origin master</p>
+</blockquote>
+</li>
+<li>使用 git push 命令推送本地文件到远程仓库，实际上是把当前分支 master 推送到远程<blockquote>
+<p>git push -u origin master </p>
+</blockquote>
+</li>
+</ol>
 ]]></content>
     
     <summary type="html">
