@@ -142,7 +142,7 @@
     <link href="http://yoursite.com/2017/04/11/iOS-%E5%BC%80%E5%8F%91%E4%B8%AD-GCD-%E7%9A%84%E4%BD%BF%E7%94%A8/"/>
     <id>http://yoursite.com/2017/04/11/iOS-开发中-GCD-的使用/</id>
     <published>2017-04-11T14:22:56.000Z</published>
-    <updated>2017-04-12T15:17:06.000Z</updated>
+    <updated>2017-05-16T16:02:27.000Z</updated>
     
     <content type="html"><![CDATA[<p>iOS 开发中少不了多线程的使用，目前共有四种多线程方法，分别是PThread、NSThread、GCD、NSOperation。其中因为 GCD 使用起来方便高效而为广大开发人员采用！这篇文章就介绍一些开发中常见的 GCD 的用法及其注意事项。<br><a id="more"></a></p>
 <h1 id="GCD（Grand-Central-Dispatch）介绍"><a href="#GCD（Grand-Central-Dispatch）介绍" class="headerlink" title="GCD（Grand Central Dispatch）介绍"></a>GCD（Grand Central Dispatch）介绍</h1><p>GCD属于系统级的线程管理，在Dispatch queue中执行需要执行的任务性能非常的高。GCD这块已经开源，地址<a href="">http://libdispatch.macosforge.org</a>。GCD中的FIFO队列称为dispatch queue，用来保证先进来的任务先得到执行。</p>
@@ -157,7 +157,8 @@
 <li>任务</li>
 <li>队列组</li>
 </ul>
-<h1 id="GCD-在-iOS-开发中常见用法"><a href="#GCD-在-iOS-开发中常见用法" class="headerlink" title="GCD 在 iOS 开发中常见用法"></a>GCD 在 iOS 开发中常见用法</h1><h2 id="1-延迟执行"><a href="#1-延迟执行" class="headerlink" title="1.  延迟执行"></a>1.  延迟执行</h2><h2 id="2-实现一次性代码"><a href="#2-实现一次性代码" class="headerlink" title="2.  实现一次性代码"></a>2.  实现一次性代码</h2><p>dispatch_once_t要是全局或static变量，保证dispatch_once_t只有一份实例</p>
+<h1 id="GCD-在-iOS-开发中常见用法"><a href="#GCD-在-iOS-开发中常见用法" class="headerlink" title="GCD 在 iOS 开发中常见用法"></a>GCD 在 iOS 开发中常见用法</h1><h2 id="1-延迟执行"><a href="#1-延迟执行" class="headerlink" title="1.  延迟执行"></a>1.  延迟执行</h2><p>示例：以下代码标示延迟3秒钟执行<br>    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{<br>    这里是需要延迟执行的代码<br>    });</p>
+<h2 id="2-实现一次性代码"><a href="#2-实现一次性代码" class="headerlink" title="2.  实现一次性代码"></a>2.  实现一次性代码</h2><p>dispatch_once_t要是全局或static变量，保证dispatch_once_t只有一份实例</p>
 <pre><code>+ (UIColor *)boringColor;
 {
  static UIColor *color;
@@ -169,14 +170,29 @@
  return color;
 }
 </code></pre><hr>
-<pre><code>-(void)touchesBegan:(NSSet *)touches withEvent:    (UIEvent *)event
+<pre><code>-(void)touchesBegan:(NSSet *)touches withEvent: (UIEvent *)event
 {
      static dispatch_once_t onceToken;
      dispatch_once(&amp;onceToken, ^{
          NSLog(@&quot;该行代码只执行一次&quot;);
      });
  }
-</code></pre><h2 id="3-使用队列组解决-需求：从网络上下载两张图片，把两张图片合并成一张最终显示在view上"><a href="#3-使用队列组解决-需求：从网络上下载两张图片，把两张图片合并成一张最终显示在view上" class="headerlink" title="3.  使用队列组解决      需求：从网络上下载两张图片，把两张图片合并成一张最终显示在view上"></a>3.  使用队列组解决      需求：从网络上下载两张图片，把两张图片合并成一张最终显示在view上</h2><h1 id="GCD-死锁问题"><a href="#GCD-死锁问题" class="headerlink" title="GCD 死锁问题"></a>GCD 死锁问题</h1>]]></content>
+</code></pre><h2 id="3-使用队列组解决-需求：从网络上下载两张图片，把两张图片合并成一张最终显示在view上"><a href="#3-使用队列组解决-需求：从网络上下载两张图片，把两张图片合并成一张最终显示在view上" class="headerlink" title="3.  使用队列组解决      需求：从网络上下载两张图片，把两张图片合并成一张最终显示在view上"></a>3.  使用队列组解决      需求：从网络上下载两张图片，把两张图片合并成一张最终显示在view上</h2><pre><code>dispatch_group_t group =  dispatch_group_create();  //创建一个队列组
+dispatch_group_async(group, dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+    // 执行1个耗时的异步操作  下载第一张图片
+
+});
+
+dispatch_group_async(group, dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+    // 执行1个耗时的异步操作   下载第二张图片
+
+});
+
+dispatch_group_notify(group, dispatch_get_main_queue(), ^{
+    // 等前面的异步操作都执行完毕后，回到主线程...
+
+}); 
+</code></pre><h1 id="GCD-死锁问题"><a href="#GCD-死锁问题" class="headerlink" title="GCD 死锁问题"></a>GCD 死锁问题</h1>]]></content>
     
     <summary type="html">
     
